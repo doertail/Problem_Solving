@@ -9,7 +9,7 @@ int main(void)
     ios_base::sync_with_stdio(0);
     cin.tie(NULL);
 
-    int len, sum =0;
+    int len, sum = 0;
     cin >> len;
     int n;
 
