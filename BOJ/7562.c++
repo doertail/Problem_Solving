@@ -1,3 +1,4 @@
+// 7562: 나이트의 이동
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -57,27 +58,17 @@ void BFS()
 
         for(int i = 0; i < 8; i++) {
             int x = temp.first + dx[i]; int y = temp.second + dy[i];
+
             if(x >= row || x < 0 || y >= column || y < 0) continue;
             
-            if(board[x][y] == -1) {
-                cout << x <<' '<< y <<' ' << ' '<< num <<"\n";
-                cout << num+1 << "\n";
-                return;
-            }
-
             if(board[x][y] > 0) continue;
 
-            
-
+            if(board[x][y] == -1) {
+                cout << num + 1 << "\n";
+                return;
+            }
             que.push({x, y});
             board[x][y] = num + 1; // 시간 반영!
-            // cout << x <<' '<< y <<' ' << ' '<< num <<"\n";
         }
     }
 }
-
-/*
-300 
-0 0 
-299 299
-*/
