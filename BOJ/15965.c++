@@ -1,4 +1,4 @@
-// 15965 K번재 소수
+// 15965 K번째 소수
 #include <bits/stdc++.h>
 #define ll long long 
 #define MAX 10000001
@@ -33,6 +33,6 @@ int main(void)
             break;
         }   
     }
-    
+
     return 0;
 }
