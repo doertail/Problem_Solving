@@ -9,7 +9,6 @@ int dz[] = {0, 0, 0, 0, 1, -1};
 int dx[] = {1, -1, 0, 0, 0, 0};
 int dy[] = {0, 0, 1, -1, 0, 0};
 
-
 queue<tuple<int, int, int>> que;
 
 void BFS();
