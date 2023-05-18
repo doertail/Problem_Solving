@@ -1,36 +1,51 @@
+// 13459: 숨바꼭질 3
+// by Dijkstra
 #include <bits/stdc++.h>
-#define max 200000
+#define max 100000
 
 using namespace std;
-int start, desination; 
-int board[max+2];
 
-int main(void) {   
+int start, desination; 
+int board[max+1];
+
+struct compare{
+    bool operator()(pair<int, int> a, pair<int, int> b){
+        return a.second>b.second;
+    }
+};
+
+priority_queue<pair<int, int>, vector<pair<int, int>>, compare> Q;
+
+int main(void) 
+{   
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
     cin >> start >> desination;
-
-    deque<int> dq;
-    fill(board, board+max, -1);
+    
+    fill(board, board+max+1, max+1);
     board[start] = 0;
-    dq.push_back(start);
+    Q.push({start, board[start]});
 
-    while(!dq.empty()){
-        int cur = dq.front(); dq.pop_front();
-        if(cur * 2 < max && board[cur * 2] == -1){
-            board[cur * 2] = board[cur];
-            dq.push_front(cur * 2);
+    while(!Q.empty()){
+        auto cur = Q.top(); Q.pop();
+
+        int nxt = cur.first * 2;
+        if(nxt <= max && board[nxt] > cur.second ){
+            board[nxt] = cur.second;
+            Q.push({nxt, board[nxt]});
         }
-        for(int nxt: {cur - 1, cur + 1}){
-            if(nxt < 0 || nxt > max) continue;
-            if(board[nxt] != -1 )    continue;
-            board[nxt] = board[cur]+1;
-            dq.push_back(nxt);
-        }    
+
+        for(int nxt: {cur.first -1, cur.first + 1}){
+            if(nxt < 0|| nxt > max) continue;
+            if(board[nxt] < cur.second+1) continue;
+
+            board[nxt] = cur.second+1;
+            Q.push({nxt, board[nxt]});
+        }
     }
 
-    cout << board[desination];
+    cout << board[desination] << "\n";
 
     return 0;    
 }
