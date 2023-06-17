@@ -8,7 +8,7 @@ priority_queue<ll, vector<ll>, greater<ll>> pq;
 int N_prime, wanted, sum;
 int arr[100];
 
-map<long long, bool>visited;
+map<ll, bool>visited;
 
 int main(void){
     ios_base::sync_with_stdio(false);
@@ -19,11 +19,11 @@ int main(void){
     for(int i=0; i<N_prime; i++){
         cin >> arr[i];
         pq.push(arr[i]);
-        visited[arr[i]] = 1;
+        visited[arr[i]] = true;
     }
 
     int max = arr[N_prime-1];
-    long top, val;
+    ll top, val;
 
     while(1){
         top = pq.top(); pq.pop();
@@ -34,7 +34,7 @@ int main(void){
             return 0;
         }
         
-        for(int i=0; i<N_prime;i++){
+        for(int i=0; i<N_prime; i++){
             int num = arr[i];
             val = top * num;
 
@@ -42,7 +42,7 @@ int main(void){
             if(visited[val]) continue;
 
             pq.push(val);
-            visited[val] = true;
+            visited[val] = true; 
 
             if(val > max) max = val;
         }
