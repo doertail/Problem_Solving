@@ -1,4 +1,4 @@
-// 1780: 종이의 개수
+// 2630: 색종이 만들기
 #include <bits/stdc++.h>
 
 #define condition ios_base::sync_with_stdio(0); cin.tie(NULL);
@@ -6,9 +6,9 @@
 void func(int i, int j, int len);
 int are_same(int x, int y, int len);
 
-int board[2188][2188];
+int board[129][129];
 
-int arr[3];
+int arr[2];
 
 using namespace std;
 
@@ -31,10 +31,10 @@ int main(void){
 void func(int x, int y, int len){
     if(are_same(x, y, len)) return;
 
-    int newlen = len / 3;
+    int newlen = len / 2;
 
-    for(int i = 0; i < 3; i++)
-        for(int j = 0; j < 3; j++)
+    for(int i = 0; i < 2; i++)
+        for(int j = 0; j < 2; j++)
             func(x + i*newlen, y + j*newlen, newlen);
 }
 
@@ -48,7 +48,7 @@ int are_same(int x, int y, int len){
         }
     }
 
-    arr[ref+1]++;
+    arr[ref]++;
 
     return 1;
 }
