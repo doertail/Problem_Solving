@@ -1,6 +1,6 @@
 // 1780: 종이의 개수
 #include <bits/stdc++.h>
-#define ll long long
+
 #define condition ios_base::sync_with_stdio(0); cin.tie(NULL);
 
 void func(int i, int j, int len);
