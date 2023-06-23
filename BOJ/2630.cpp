@@ -21,9 +21,8 @@ int main(void){
         for(int j=0; j < N; j++)
             cin >> board[i][j];
 
-    func(0,0, N); //시작점, 한 변의 길이
-
-    for(int n: arr) cout << n <<'\n';
+    func(0,0, N); //시작점, 한
+    for(int n: arr) cout << n <<"\n";
 
     return 0;
 }
