@@ -29,17 +29,13 @@ int main(void){
 }
 
 void func(int x, int y, int len){
-    if(are_same(x, y, len))
-        return;
+    if(are_same(x, y, len)) return;
 
-    else{
-        int newlen = len / 3;
-        for(int i = 0; i < 3; i++){
-            for(int j = 0; j < 3; j++){
-                func(x + i*newlen, y + j*newlen, newlen);
-            }
-        }
-    }
+    int newlen = len / 3;
+
+    for(int i = 0; i < 3; i++)
+        for(int j = 0; j < 3; j++)
+            func(x + i*newlen, y + j*newlen, newlen);
 }
 
 int are_same(int x, int y, int len){
