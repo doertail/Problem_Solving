@@ -4,7 +4,7 @@
 #define MAX 65
 
 void func(int i, int j, int len);
-int are_same(int x, int y, int len);
+bool are_same(int x, int y, int len);
 
 int board[MAX][MAX];
 
@@ -22,7 +22,7 @@ int main(void){
             board[i][j] = input - '0';
         }
     
-    func(0,0, N); //시작점,  한
+    func(0,0, N);
 
     return 0;
 }
@@ -31,7 +31,7 @@ void func(int x, int y, int len){
     if(are_same(x, y, len)){
         cout << board[x][y];
         return;
-    } 
+    }
     cout << "(";
     int newlen = len / 2;
     for(int i = 0; i < 2; i++)
@@ -40,15 +40,15 @@ void func(int x, int y, int len){
     cout << ")";
 }
 
-int are_same(int x, int y, int len){
+bool are_same(int x, int y, int len){
     int ref = board[x][y];
 
     for(int i=x; i<x+len; i++){
         for(int j=y; j<y+len; j++){
             if(ref != board[i][j])
-                return 0;
+                return false;
         }
     }
 
-    return 1;
+    return true;
 }

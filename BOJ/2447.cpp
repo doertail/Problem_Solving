@@ -19,7 +19,6 @@ int main(void){
 
     func(k);
 
-    
     return 0;
 }
 
