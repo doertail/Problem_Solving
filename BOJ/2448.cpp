@@ -46,7 +46,7 @@ void func(int i, int j, int l){
 
     else{
         func(i, j, l/2);
-        func(i + l/2, j - l/3-l/6 , l/2);
-        func(i + l/2, j + l/3+l/6 , l/2);
+        func(i + l/2, j - l/2 , l/2);
+        func(i + l/2, j + l/2 , l/2);
     }
 }
