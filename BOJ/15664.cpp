@@ -28,7 +28,7 @@ int main(void){
             
             cout <<"\n";
         }
-        reverse(arr + M, arr+N); // 중요!!
+        reverse(arr + M, arr+N);
     }while(next_permutation(arr, arr+N));
 
     return 0;
