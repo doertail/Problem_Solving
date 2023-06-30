@@ -1,4 +1,4 @@
-// 15655: N과 M (7)
+// 15656: N과 M (7)
 #include <bits/stdc++.h>
 #define FAST_IO ios_base::sync_with_stdio(0); cin.tie(NULL);
 using namespace std;
