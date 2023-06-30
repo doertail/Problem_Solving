@@ -1,4 +1,4 @@
-// 15654: N과 M (6)
+// 15654: N과 M (5)
 #include <bits/stdc++.h>
 
 #define FAST_IO ios_base::sync_with_stdio(0); cin.tie(NULL);
@@ -13,7 +13,6 @@ int main(void){
     FAST_IO
     
     int N, M;
-
     cin >> N >> M;
 
     int *arr = new int[N];
@@ -21,20 +20,14 @@ int main(void){
         cin >> arr[i];
 
     sort(arr, arr+N);
-    
-    int *ref = new int[N];
-    fill(ref, ref+N, 1);
-
-    for(int i=0; i<M ;i++)
-        ref[i] = 0;
 
     do{
-        for(int i=0; i<N; i++){
-            if(ref[i]==0)
-                cout << arr[i] <<' ';
-        }
+        for(int i=0; i<M; i++)
+            cout << arr[i] <<' ';
+        
         cout <<"\n";
-    }while(next_permutation(ref, ref+N));
+    reverse(arr + M, arr+N); // 중요!!
+    }while(next_permutation(arr, arr+N));
 
     return 0;
 }
