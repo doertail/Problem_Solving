@@ -21,12 +21,7 @@ int main(void){
 
     sort(vec.begin(), vec.end());
 
-    for(int i=1; i<vec.size(); i++) // 중복 제거
-        if(vec[i-1] == vec[i])
-            vec.erase(vec.begin() + i);
-    if(vec[0] == vec[1])
-        vec.erase(vec.begin()+1);
-
+    vec.erase(unique(vec.begin(), vec.end()), vec.end());
 
     solution();
 
