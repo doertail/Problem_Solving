@@ -12,6 +12,7 @@ int main(void){
     FAST_IO
     
     cin >> L >> M;
+    
     for(int i=1; i<=L; i++){
         for(int j=1; j<=L; j++){
             cin >> board[i][j];
@@ -33,14 +34,14 @@ int main(void){
             if(arr[i]==0)
                 _vec.push_back(vec[i]); // 치킨집 고르기!
         }
-
         int temp_sum = 0;
+
         for(pair h:home){
             int temp= (1<<10);
             int x = h.first; int y = h.second;
-            for(pair c:_vec){
+            for(pair c:_vec)
                 temp = min(temp, abs(x-c.first)+abs(y-c.second));
-            }
+            
             temp_sum += temp;
         }
         sum = min(sum, temp_sum);
