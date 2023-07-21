@@ -16,10 +16,10 @@ void merge(int st, int en){
       tmp[idx] = arr[b_idx++];
     else if(b_idx >= en)
       tmp[idx] = arr[a_idx++];
-    else if(arr[a_idx] > arr[b_idx])
-      tmp[idx] = arr[b_idx++];
-    else
+    else if(arr[a_idx] <= arr[b_idx])
       tmp[idx] = arr[a_idx++];
+    else
+      tmp[idx] = arr[b_idx++];
   }
 
   for(int idx = st; idx<en; idx++){
