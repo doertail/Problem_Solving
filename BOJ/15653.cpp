@@ -6,8 +6,6 @@ using namespace std;
 
 int N, M, ANS=1024;
 char board[11][11];
-// bool r_visited[11][11];
-// bool b_visited[11][11];
 int visited[11][11][21][21];
 pair Hole;
 pair move(pair color, int dir, pair other);
@@ -44,34 +42,14 @@ int main(void){
 
     return 0;
 }
-// (4,2)(5,2) => (4,2)(15,12)
-// (5,2)(4,2) => (4,2)(15,12)
 void solve(pair Red, pair Blue, int n){
-    // if(n>10)
-    //     return;
-    // cout << "n: " << n <<'\n';
-    // for(int i=0; i<N; i++){
-    //     for(int j=0; j<M; j++){
-    //         if(Red.first == i && Red.second == j )
-    //             cout << 'R';
-    //         else if(Blue.first == i && Blue.second == j)
-    //             cout << 'B';
-    //         else
-    //             cout << board[i][j];
-    //     }
-    //     cout <<"\n";
-    // }
-    // cout <<"\n";
-    // cout <<"n:"<<n<< " RED:" << Red.first << Red.second << "\tBLUE" << Blue.first << Blue.second << '\n';
-    if(visited[Red.first][Red.second][Blue.first+10][Blue.second+10] && visited[Red.first][Red.second][Blue.first+10][Blue.second+10]<n){        
-        // cout << "ouT\n\n";
+    if(visited[Red.first][Red.second][Blue.first+10][Blue.second+10] && visited[Red.first][Red.second][Blue.first+10][Blue.second+10]<n)
         return;
-    }
-    else{
+    else
         visited[Red.first][Red.second][Blue.first+10][Blue.second+10] = n;
-    }
-
+    
     pair Rtemp = Red; pair Btemp = Blue;
+
     if(Rtemp.second > Btemp.second){
         Rtemp = move(Rtemp, 0, Btemp);
         Btemp = move(Btemp, 0, Rtemp);
@@ -82,11 +60,8 @@ void solve(pair Red, pair Blue, int n){
     }
     if(Rtemp != Red || Btemp != Blue){
         if(Btemp != Hole){
-            if(Rtemp == Hole){
+            if(Rtemp == Hole)
                 ANS = min(ANS, n);
-                // if(ANS == n)
-                    // cout << "!!" << n <<"\n";
-            }
             else
                 solve(Rtemp, Btemp, n+1);
         }
@@ -103,12 +78,8 @@ void solve(pair Red, pair Blue, int n){
     }
     if(Rtemp != Red || Btemp != Blue){
         if(Btemp != Hole){
-            if(Rtemp == Hole){
+            if(Rtemp == Hole)
                 ANS = min(ANS, n);
-                // if(ANS == n){
-                //     // cout << "!!" << n <<"\n";
-                // }
-            }
             else
                 solve(Rtemp, Btemp, n+1);
         }
@@ -125,12 +96,8 @@ void solve(pair Red, pair Blue, int n){
     }
     if(Rtemp != Red || Btemp != Blue){
         if(Btemp != Hole){
-            if(Rtemp == Hole){
+            if(Rtemp == Hole)
                 ANS = min(ANS, n);
-                // if(ANS == n){
-                //     cout << "!!" << n <<"\n";
-                // }
-            }
             else
                 solve(Rtemp, Btemp, n+1);
         }
@@ -147,12 +114,8 @@ void solve(pair Red, pair Blue, int n){
     }
     if(Rtemp != Red || Btemp != Blue){
         if(Btemp != Hole){
-            if(Rtemp == Hole){
+            if(Rtemp == Hole)
                 ANS = min(ANS, n);
-                // if(ANS == n){
-                //     cout << "!!" << n <<"\n";
-                // }
-            }
             else
                 solve(Rtemp, Btemp, n+1);
         }
