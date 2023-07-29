@@ -14,7 +14,6 @@ int main(void){
     for(int n=4; n<12; n++){
         dp[n] = dp[n-1] + dp[n-2] + dp[n-3];
     }
-    // cout << dp[4];
 
     while(N--){
         int n;
