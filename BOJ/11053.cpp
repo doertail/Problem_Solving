@@ -1,4 +1,4 @@
-// 11055: 가장 큰 증가하는 부분 수열
+// 11055: 가장  증가하는 부분 수열
 #include <bits/stdc++.h>
 #define FAST_IO ios_base::sync_with_stdio(0); cin.tie(NULL);
 using namespace std;
