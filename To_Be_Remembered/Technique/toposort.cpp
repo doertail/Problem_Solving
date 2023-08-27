@@ -1,7 +1,7 @@
 // 위상 정렬 가구현
 #include <bits/stdc++.h>
 #define FAST_IO ios_base::sync_with_stdio(0); cin.tie(NULL);
-#define MAX 10005
+#define MAX 1002
 using namespace std;
 
 // 그래프 구현
@@ -18,9 +18,6 @@ int main(void){
 
     int N, M;
     cin >> N >> M;
-    while(M--){
-        
-    }
 
     while(M--){
         int A, B;
