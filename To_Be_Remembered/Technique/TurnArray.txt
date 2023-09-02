@@ -1,0 +1,21 @@
+void turnLeftArray(){
+    int tmp[N][N];
+    for(int i=0; i<N; i++)
+        for(int j=0; j<N; j++)
+            tmp[N-1-j][i] = board[i][j];
+
+    for(int i=0; i<N; i++)
+        for(int j=0; j<N; j++)
+            board[i][j] = tmp[i][j];
+}
+
+void turnRightArray(){
+    int tmp[N][N];
+    for(int i=0; i<N; i++)
+        for(int j=0; j<N; j++)
+            tmp[j][N-1-i] = board[i][j];
+
+    for(int i=0; i<N; i++)
+        for(int j=0; j<N; j++)
+            board[i][j] = tmp[i][j];
+}
