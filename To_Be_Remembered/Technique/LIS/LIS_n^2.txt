@@ -1,5 +1,6 @@
 // 1965: 상자 넣기
 // O(n^2) LIS
+// dp를 이용 .. 
 #include <bits/stdc++.h>
 #define FAST_IO ios_base::sync_with_stdio(0); cin.tie(NULL);
 using namespace std;

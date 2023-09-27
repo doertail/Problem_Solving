@@ -1,0 +1,59 @@
+#include <bits/stdc++.h>
+#define FAST_IO ios_base::sync_with_stdio(0); cin.tie(NULL);
+#define ll long long
+#define pair pair<int, int>
+#define tuple tuple<int,int,int>
+#define MAX 100005
+using namespace std;
+struct Comp{
+    bool operator()(const tuple& a, const tuple& b){
+        return get<0>(a) > get<0>(b);
+    }
+};
+priority_queue<tuple, vector<tuple>, Comp> pq;
+vector<pair> g[MAX];
+int EdgeNum;
+ll Ans;
+bool visited[MAX];
+// int MaxVal;
+int main(void){
+    FAST_IO
+    int V, E;
+    cin >> V >> E;
+    // 간선 입력 
+    while(E--){
+        int n1, n2, v;
+        cin >> n1 >> n2 >> v;
+        g[n1].push_back({n2, v});
+        g[n2].push_back({n1, v});
+    }
+    // init
+    visited[1] = true;
+    for(pair p: g[1]){
+        int n2, v;
+        tie(n2, v) = p;
+        pq.push({v, 1, n2});
+    }
+    while(EdgeNum != V-1){
+        int v, n1, n2;
+        tie(v, n1, n2) = pq.top();
+        pq.pop();
+        if(visited[n2])
+            continue;
+        visited[n2] = true;
+        for(pair p: g[n2]){
+            int n, v;
+            tie(n, v) = p;
+            if(visited[n])
+                continue;
+            pq.push({v, n2, n});
+        }
+        EdgeNum++;
+        Ans += v;
+        // MaxVal = max(v, MaxVal);
+    }
+
+    cout << Ans;
+
+    return 0;
+}
